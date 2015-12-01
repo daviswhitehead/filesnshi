@@ -8,6 +8,7 @@ fi
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 export PATH="$HOME/bin:$PATH"
+export GIT_EDITOR=vim
 
 # export ctags -R /Users/dwhitehead/Documents/cogo/repos/
 
