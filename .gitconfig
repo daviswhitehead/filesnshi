@@ -1,0 +1,9 @@
+[user]
+	name = Davis Whitehead
+	email = whitehead.davis@gmail.com
+[core]
+	editor = /usr/bin/vim
+[credential]
+	helper = osxkeychain
+[init]
+	templatedir = ~/.git_template
