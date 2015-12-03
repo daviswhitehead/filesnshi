@@ -7,36 +7,39 @@ set backspace=indent,eol,start
 " defalut settings
 set number
 syntax on
-set background=dark
+
 set number
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 set clipboard=unnamed
+let mapleader = "="
 
 " for my sshrc
 :imap <special> jk <Esc>
 
 " colors
-if has('gui_running')
-  set background=dark
-  colorscheme solarized
-else
-  colorscheme Zenburn
-endif
+set background=dark
+colorscheme Zenburn
+" colorscheme solarized
 
 " python settings
 au BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
     \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
     \ set fileformat=unix |
-    \ syntax on
-    \ set background=dark
-    \ set number
-    \ set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
-    \ set encoding=utf-8
+    \ syntax on |
+    \ set background=dark |
+    \ set number |
+    \ set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅ |
+    \ set encoding=utf-8 |
+    \ set noexpandtab |
+    \ set copyindent |
+    \ set preserveindent |
+    \ set tabstop=4 |
+    \ set softtabstop=0 |
+    \ set shiftwidth=4 |
+    \ set autoindent |
+    \ :call tagbar#autoopen() |
+"    \ NERDTree |
+"    \ set expandtab |
 
 let python_highlight_all=1
 
@@ -52,6 +55,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" other mappings
+nnoremap qa :qall!<CR>
+nnoremap qq :q!<CR>
+nnoremap <space> za
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -63,19 +71,22 @@ Plugin 'gmarik/Vundle.vim'
 
 " python mode (indentation, doc, refactor, lints, code checking, motion and
 " operators, highlighting, run and ipdb breakpoints)
-Plugin 'klen/python-mode'
-" virtual environments
-Plugin 'jmcantrell/vim-virtualenv'
+" Plugin 'klen/python-mode'
+" virtual environments Plugin 'jmcantrell/vim-virtualenv'
 " ctags code indexer
 Plugin 'ctags.vim'
 " class/module browser
 Plugin 'majutsushi/tagbar'
+let g:tagbar_autofocus = 0
 nmap <F4> :TagbarToggle<CR>
 " git
 Plugin 'tpope/vim-fugitive'
 " code folding
 Plugin 'tmhedberg/SimpylFold'
-let g:SimplyFold_docstring_preview=1
+autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
+autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
+let g:SimplyFold_docstring_preview=0
+"zR open all, zM close all
 " auto complete
 Plugin 'Valloric/YouCompleteMe'
 " colors
@@ -84,13 +95,12 @@ Plugin 'altercation/vim-colors-solarized'
 " code and files fuzzy finder
 Plugin 'kien/ctrlp.vim'
 " automatically sort python imports
-Plugin 'fisadev/vim-isort'
+" Plugin 'fisadev/vim-isort'
 " misc vim scripts
-Plugin 'L9'
-" editor config
-Plugin 'editorconfig/editorconfig-vim'
+Plugin 'L9' " editor config Plugin 'editorconfig/editorconfig-vim'
 " airline
 Plugin 'bling/vim-airline'
+set laststatus=2
 " comments
 Plugin 'scrooloose/nerdcommenter'
 " syntax checker
@@ -113,9 +123,9 @@ map <F3> :NERDTreeToggle<CR>
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
+" filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins

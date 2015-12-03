@@ -48,6 +48,8 @@ alias finder='open .'
 alias osdsm='cd /Users/dwhitehead/Documents/github/open_source_data_science_masters'
 alias bfg='java -jar /Applications/bfg-1.12.7.jar '
 alias cleartemp='rm -rf /var/folders/pb/dfdkscmx4wsgddx9qgxy3wmm0000gp/T/'
+alias sampledata='cd /Users/dwhitehead/Documents/cogo/repos/sample_data/'
+alias filesnshi='cd /Users/dwhitehead/Documents/github/filesnshi/'
 
 # git aliases
 alias gp='git pull'
