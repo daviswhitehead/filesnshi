@@ -26,9 +26,9 @@ function sv() {
 
 function gplso() {
 	if [ -z "$1"]; then
-		$branch="master"
+		branch="master"
 	else
-		$branch="$1"
+		branch="$1"
 	fi
 	git pull origin $branch
 	git push origin $branch
