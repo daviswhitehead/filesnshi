@@ -38,6 +38,10 @@ au BufNewFile,BufRead *.py
     \ set shiftwidth=4 |
     \ set autoindent |
     \ :call tagbar#autoopen() |
+    \ let g:pymode = 1 |
+    \ let g:pymode_folding = 1 |
+    \ let g:pymode_motion = 1 |
+    \ let g:pymode_run_bind = '<leader>r' |
 "    \ NERDTree |
 "    \ set expandtab |
 
@@ -58,7 +62,9 @@ nnoremap <C-H> <C-W><C-H>
 " other mappings
 nnoremap qa :qall!<CR>
 nnoremap qq :q!<CR>
+nnoremap wqa :wqa<CR>
 nnoremap <space> za
+nnoremap <C-o> o<Esc>k
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -71,8 +77,11 @@ Plugin 'gmarik/Vundle.vim'
 
 " python mode (indentation, doc, refactor, lints, code checking, motion and
 " operators, highlighting, run and ipdb breakpoints)
-" Plugin 'klen/python-mode'
-" virtual environments Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'klen/python-mode'
+"let g:pep8_ignore='E116,W191'
+let g:pymode_lint_ignore='E124,E116,W191,E501,E128'
+" virtual environments
+Plugin 'jmcantrell/vim-virtualenv'
 " ctags code indexer
 Plugin 'ctags.vim'
 " class/module browser
@@ -86,7 +95,7 @@ Plugin 'tmhedberg/SimpylFold'
 autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
 autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 let g:SimplyFold_docstring_preview=0
-"zR open all, zM close all
+"zR open all, zM close all, zj for next fold, zk for previous
 " auto complete
 Plugin 'Valloric/YouCompleteMe'
 " colors
@@ -95,9 +104,11 @@ Plugin 'altercation/vim-colors-solarized'
 " code and files fuzzy finder
 Plugin 'kien/ctrlp.vim'
 " automatically sort python imports
-" Plugin 'fisadev/vim-isort'
+Plugin 'fisadev/vim-isort'
 " misc vim scripts
-Plugin 'L9' " editor config Plugin 'editorconfig/editorconfig-vim'
+Plugin 'L9'
+" editor config
+Plugin 'editorconfig/editorconfig-vim'
 " airline
 Plugin 'bling/vim-airline'
 set laststatus=2

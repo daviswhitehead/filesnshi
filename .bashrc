@@ -16,13 +16,22 @@ export GIT_EDITOR=vim
 # bash <(curl -Ls http://git.io/eUx7rg)
 
 # general functions
-function sv()
-{
+function sv() {
 	base_name=`basename $PWD`
 	prefix="/v"
 	suffix="/bin/activate"
 	command=$PWD$prefix$base_name$suffix
 	source $command
+}
+
+function gplso() {
+	if [ -z "$1"]; then
+		$branch="master"
+	else
+		$branch=$1
+	fi
+	git pull origin $branch
+	git push origin $branch
 }
 
 # general aliases
