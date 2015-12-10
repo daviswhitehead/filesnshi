@@ -65,6 +65,7 @@ nnoremap qq :q!<CR>
 nnoremap wqa :wqa<CR>
 nnoremap <space> za
 nnoremap <C-o> o<Esc>k
+nnoremap <C-q> <C-c>ZZ
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -98,6 +99,8 @@ let g:SimplyFold_docstring_preview=0
 "zR open all, zM close all, zj for next fold, zk for previous
 " auto complete
 Plugin 'Valloric/YouCompleteMe'
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_add_preview_to_completeopt = 1
 " colors
 Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
