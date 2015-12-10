@@ -77,9 +77,9 @@ Plugin 'gmarik/Vundle.vim'
 
 " python mode (indentation, doc, refactor, lints, code checking, motion and
 " operators, highlighting, run and ipdb breakpoints)
-Plugin 'klen/python-mode'
-"let g:pep8_ignore='E116,W191'
-let g:pymode_lint_ignore='E124,E116,W191,E501,E128'
+" Plugin 'klen/python-mode'
+" let g:pep8_ignore='E116,W191'
+" let g:pymode_lint_ignore='E124,E116,W191,E501,E128'
 " virtual environments
 Plugin 'jmcantrell/vim-virtualenv'
 " ctags code indexer
@@ -123,6 +123,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_flake8_args = '--ignore=E124,E116,W191,E501,E128,E126'
 map <F2> :SyntasticCheck<CR>
 " file browser
 Plugin 'scrooloose/nerdtree'
