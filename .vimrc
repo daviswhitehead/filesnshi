@@ -126,7 +126,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_flake8_args = '--ignore=E124,E116,W191,E501,E128,E126'
+let g:syntastic_python_flake8_args = '--ignore=E124,E116,W191,E501,E128,E126,E113'
 map <F2> :SyntasticCheck<CR>
 " file browser
 Plugin 'scrooloose/nerdtree'

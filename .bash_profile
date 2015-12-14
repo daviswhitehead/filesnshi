@@ -3,13 +3,10 @@
 [[ -r ~/.bashrc ]] && . ~/.bashrc
 
 alias grid='sshrc -x dwhitehead@cglgrid2'
-
-alias ps1='sshrc -x cogo@psgrid1'
-
-alias ps2='sshrc -x cogo@psgrid2'
-
 alias soc='sshrc -x social@cglgrid2'
-
+alias ps1='sshrc -x cogo@psgrid1'
+alias ps2='sshrc -x cogo@psgrid2'
+alias pss='sshrc -x cogo@psstaging'
 
 # added by Anaconda 2.1.0 installer
 export PATH="//anaconda/bin:$PATH"
