@@ -23,7 +23,9 @@ colorscheme Zenburn
 
 " python settings
 au BufNewFile,BufRead *.py
-    \ set textwidth=79 |
+    \ set textwidth=0 |
+    \ set wrapmargin=0 |
+    \ set wrap |
     \ set fileformat=unix |
     \ syntax on |
     \ set background=dark |
