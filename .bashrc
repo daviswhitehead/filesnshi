@@ -5,6 +5,8 @@ if [ -f /etc/bashrc ]; then
         . /etc/bashrc
 fi
 
+PS1='[\u@\h \W \D{%F %T}]\$ '
+
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 export PATH="$HOME/bin:$PATH"
