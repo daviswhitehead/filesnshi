@@ -5,12 +5,21 @@ if [ -f /etc/bashrc ]; then
         . /etc/bashrc
 fi
 
+function frameworkpython {
+    if [[ ! -z "$VIRTUAL_ENV" ]]; then
+        PYTHONHOME=$VIRTUAL_ENV /usr/local/bin/python "$@"
+    else
+        /usr/local/bin/python "$@"
+    fi
+}
+
 PS1='[\u@\h \W \D{%F %T}]\$ '
 
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 export PATH="$HOME/bin:$PATH"
 export GIT_EDITOR=vim
+export FLEETCTL_ENDPOINT=http://sink.cogolo.net
 
 # export ctags -R /Users/dwhitehead/Documents/cogo/repos/
 

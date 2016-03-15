@@ -7,6 +7,7 @@ set backspace=indent,eol,start
 " defalut settings
 set number
 syntax on
+"set iskeyword-=_  " treats words separated by _ as separate
 
 set number
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
@@ -39,11 +40,11 @@ au BufNewFile,BufRead *.py
     \ set softtabstop=0 |
     \ set shiftwidth=4 |
     \ set autoindent |
-    \ :call tagbar#autoopen() |
     \ let g:pymode = 1 |
     \ let g:pymode_folding = 1 |
     \ let g:pymode_motion = 1 |
     \ let g:pymode_run_bind = '<leader>r' |
+"    \ :call tagbar#autoopen() |
 "    \ NERDTree |
 "    \ set expandtab |
 
@@ -68,6 +69,7 @@ nnoremap wqa :wqa<CR>
 nnoremap <space> za
 nnoremap <C-o> o<Esc>k
 nnoremap <C-q> <C-c>ZZ
+nnoremap <SPACE> i<space><esc>
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -83,6 +85,16 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin 'klen/python-mode'
 " let g:pep8_ignore='E116,W191'
 " let g:pymode_lint_ignore='E124,E116,W191,E501,E128'
+" markdown live preview
+Plugin 'suan/vim-instant-markdown'
+" multi cursors
+Plugin 'terryma/vim-multiple-cursors'
+let g:multi_cursor_use_default_mapping=0
+" Default mapping
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
 " virtual environments
 Plugin 'jmcantrell/vim-virtualenv'
 " ctags code indexer
@@ -128,7 +140,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_flake8_args = '--ignore=E124,E116,W191,E501,E128,E126,E113'
+let g:syntastic_python_flake8_args = '--ignore=E124,E116,W191,E501,E128,E126,E113,F401'
 map <F2> :SyntasticCheck<CR>
 " file browser
 Plugin 'scrooloose/nerdtree'

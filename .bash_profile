@@ -23,3 +23,6 @@ export PATH="/usr/local/sbin:$PATH"
 export ANDROID_HOME=/Users/dwhitehead/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
+# colors!
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced

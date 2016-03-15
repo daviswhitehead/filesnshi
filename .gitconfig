@@ -7,3 +7,9 @@
 	helper = osxkeychain
 [init]
 	templatedir = ~/.git_template
+[filter "spabs"]
+    clean = expand -t 4
+    smudge = expand -t 4
+    required
+[merge]
+    renormalize = true
