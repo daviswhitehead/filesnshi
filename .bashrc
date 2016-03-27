@@ -13,13 +13,29 @@ function frameworkpython {
     fi
 }
 
-PS1='[\u@\h \W \D{%F %T}]\$ '
+# command line prompt
+#force_color_prompt=yes
+#if [ "$color_prompt" = yes ]; then
+PS1='\[\[\033[01;34m\]\u\[\033[01;33m\] \[\033[01;33m\]\W \[\033[01;31m\]\D{%F %T} \[\033[01;37m\]\$ \]\]'
+#[\033[01:32m\]
+#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u\[\033[01;31m\]@\[\033[01;36m\]\h\[\033[01;33m\]:\[\033[01;31m\]\w\[\033[01;33m\]\$ '
+#else
+  #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+#fi
 
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 export PATH="$HOME/bin:$PATH"
 export GIT_EDITOR=vim
-export FLEETCTL_ENDPOINT=http://sink.cogolo.net
+
+# working with fleet
+export FLEETCTL_ENDPOINT=http://shrimp.cogolo.net
+alias fleet_rsa='ssh-add ~/.ssh/fleet_rsa'
+alias fl='fleetctl '
+alias fll='fleetctl list-units '
+alias flj='fleetctl journal '
+alias fls='fleetctl ssh '
+alias flg='fleetctl list-units | grep user_selection'
 
 # export ctags -R /Users/dwhitehead/Documents/cogo/repos/
 
