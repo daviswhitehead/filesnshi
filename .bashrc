@@ -5,6 +5,11 @@ if [ -f /etc/bashrc ]; then
         . /etc/bashrc
 fi
 
+## PYTHON ###
+
+# stop writing .pyc files
+export PYTHONDONTWRITEBYTECODE=1
+
 # for matplotlib in virtualenv
 function frameworkpython {
     if [[ ! -z "$VIRTUAL_ENV" ]]; then
@@ -22,7 +27,7 @@ function parse_git_branch() {
 	if [ ! "${BRANCH}" == "" ]
 	then
 		STAT=`parse_git_dirty`
-		echo "git: ${BRANCH}${STAT}"
+		echo "${BRANCH}${STAT}"
 	else
 		echo ""
 	fi
@@ -68,7 +73,7 @@ function virtualenv_info {
 	# Get Virtual Env
 	if [[ -n "$VIRTUAL_ENV" ]]; then
 		# Strip out the path and just leave the env name
-		echo "venv: ${VIRTUAL_ENV##*/}"
+		echo "${VIRTUAL_ENV##*/}"
 	else
 		echo ""
 	fi
@@ -97,8 +102,8 @@ prompt_command () {
 	local PURPLE="[35m\]"
 	local RED="[31m\]"
 	# items
-	local DIRECTORY="dir: \W"
-	local TIME="time: \D{%T}"
+	local DIRECTORY="\W/"
+	local TIME="\D{%T}"
 	local ARROW="  ↪  "
 	# prompt
 	export PS1="${COLOR_START}${BLUE}${DIRECTORY}${COLOR_END}\n${COLOR_START}${GREEN}${TIME}${COLOR_END}\n${COLOR_START}${YELLOW}\`parse_git_branch\`${COLOR_END}${GITNL}${COLOR_START}${PURPLE}\`virtualenv_info\`${COLOR_END}${VENVNL}${COLOR_START}${RED}${ARROW}${COLOR_END}"
@@ -110,17 +115,26 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 export PATH="$HOME/bin:$PATH"
 export GIT_EDITOR=vim
 
+### ALIAS ###
+
 # working with fleet
 export FLEETCTL_ENDPOINT=http://shrimp.cogolo.net
+alias flshrimp='export FLEETCTL_ENDPOINT=http://shrimp.cogolo.net'
+alias flpistol='export FLEETCTL_ENDPOINT=http://pistol.cogolo.net'
+alias flsink='export FLEETCTL_ENDPOINT=http://sink.cogolo.net'
 alias fleet_rsa='ssh-add ~/.ssh/fleet_rsa'
-alias fl='fleetctl '
-alias fll='fleetctl list-units '
-alias flj='fleetctl journal '
-alias fljus='fleetctl journal --lines 100 social_user_selection.service'
-alias fljwr='fleetctl journal --lines 100 social_wrangle.service'
-alias fls='fleetctl ssh '
-alias flg='fleetctl list-units | grep user_selection'
-alias flss='fleetctl ssh e2496f04'
+alias fl='fleetctl'
+alias flu='fleetctl list-units'
+alias flj='fleetctl journal'
+alias flg='fleetctl list-units | grep'
+alias flj='fleetctl journal'
+alias flm='fleetctl list-machines'
+alias fls='fleetctl start'
+alias flh='fleetctl ssh'
+alias flc='fleetctl cat'
+alias fld='fleetctl destroy'
+alias flf='fleetctl list-unit-files'
+alias flst='fleetctl status'
 
 # docker (local)
 alias dm='docker-machine'

@@ -24,6 +24,7 @@ colorscheme Zenburn
 
 " python settings
 au BufNewFile,BufRead *.py
+    \ set colorcolumn=80 |
     \ set textwidth=0 |
     \ set wrapmargin=0 |
     \ set wrap |
