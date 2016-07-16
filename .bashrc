@@ -118,7 +118,7 @@ export GIT_EDITOR=vim
 ### ALIAS ###
 
 # working with fleet
-export FLEETCTL_ENDPOINT=http://shrimp.cogolo.net
+export FLEETCTL_ENDPOINT=http://pistol.cogolo.net
 alias flshrimp='export FLEETCTL_ENDPOINT=http://shrimp.cogolo.net'
 alias flpistol='export FLEETCTL_ENDPOINT=http://pistol.cogolo.net'
 alias flsink='export FLEETCTL_ENDPOINT=http://sink.cogolo.net'

@@ -47,7 +47,7 @@ au BufNewFile,BufRead *.py
     \ let g:pymode_run_bind = '<leader>r' |
 "    \ :call tagbar#autoopen() |
 "    \ NERDTree |
-"    \ set expandtab |
+    \ set expandtab |
 
 let python_highlight_all=1
 
