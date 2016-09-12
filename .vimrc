@@ -1,4 +1,5 @@
 " Davis Whitehead's .vimrc
+" brew update && brew upgrade && brew doctor
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
