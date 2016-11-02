@@ -73,6 +73,9 @@ nnoremap <C-o> o<Esc>k
 nnoremap <C-q> <C-c>ZZ
 nnoremap <SPACE> i<space><esc>
 
+" run python
+map ;e :w<CR>:exe ":!python " . getreg("%") . "" <CR>
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()

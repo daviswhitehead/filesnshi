@@ -8,7 +8,7 @@ fi
 ### GENERAL ###
 
 # fixes vim syntax.vim not found error
-export VIMRUNTIME=/usr/share/vim/vim73
+export VIMRUNTIME=/usr/local/Cellar/vim/7.4.936/share/vim/vim74
 
 # export ctags -R /Users/dwhitehead/Documents/cogo/repos/
 
@@ -67,6 +67,10 @@ function frameworkpython {
 	/usr/bin/python "$@"
     fi
 }
+
+# for virtualenv's
+# added by me to properly set PYTHONPATH
+# export PYTHONPATH="/Users/dwhitehead/Documents/cogo/repos/social_mail:$PYTHONPATH"
 
 ### GIT ###
 
