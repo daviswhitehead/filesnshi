@@ -16,7 +16,7 @@ export VIMRUNTIME=/usr/local/Cellar/vim/7.4.936/share/vim/vim74
 # bash <(curl -Ls http://git.io/eUx7rg)
 
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 export PATH="$HOME/bin:$PATH"
 export GIT_EDITOR=vim
 
@@ -53,6 +53,14 @@ alias osdsm='cd /Users/dwhitehead/Documents/github/open_source_data_science_mast
 alias cleartemp='rm -rf /var/folders/pb/dfdkscmx4wsgddx9qgxy3wmm0000gp/T/'
 alias sampledata='cd /Users/dwhitehead/Documents/cogo/repos/sample_data/'
 alias filesnshi='cd /Users/dwhitehead/Documents/github/filesnshi/'
+alias ffoxssh='ssh -D 9150 root@74.207.245.14'
+
+# opens firefox and establishes proxy
+function ffox() {
+	open /Applications/Firefox.app/
+	ssh -D 9150 root@74.207.245.14
+}
+
 
 ### PYTHON ###
 
